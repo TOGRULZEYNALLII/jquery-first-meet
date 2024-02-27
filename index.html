@@ -12,18 +12,69 @@
     ></script>
   </head>
   <body>
-    <div class="container-main">
+    <!-- <div class="container-main">
       <input type="text" name="" id="input" placeholder="name" />
     </div>
-    <button id="button">add</button>
+    <button id="button">add</button> -->
+
+    <input type="text" id="input1" placeholder="fullname" />
+    <input type="text" id="input2" placeholder="company name" />
+    <label for="input1">Frontend</label>
+    <input type="radio" name="raidobutton" id="frontend" value="frontend" />
+    <label for="input2">Backend</label>
+    <input type="radio" name="raidobutton" id="backend" value="backend" />
+    <button id="button">Send</button>
     <ul id="ul"></ul>
 
     <script src="./jquery.min.js"></script>
     <script>
+      // $(document).ready(function () {
+      //   $("#button").click(function () {
+      //     var inputvalue = $("#input").val();
+      //     var li = document.createElement("li");
+      //     li.textContent = inputvalue;
+      //     $("#ul").append(li);
+      //     var deletes = document.createElement("button");
+      //     deletes.textContent = "delete";
+      //     $("#ul").append(deletes);
+      //     $(deletes).click(function () {
+      //       li.remove();
+      //       deletes.remove();
+      //       edit.remove();
+      //     });
+      //     var edit = document.createElement("button");
+      //     edit.textContent = "edit";
+      //     $("#ul").append(edit);
+      //     $(edit).click(function () {
+      //       let edites = prompt("edit task");
+      //       li.textContent = edites;
+      //     });
+      //   });
+      // });
       $(document).ready(function () {
         $("#button").click(function () {
-          var inputvalue = $("#input").val();
-          $("#ul").append("<li>" + inputvalue + "</li>");
+          const input1 = $("#input1").val();
+          const input2 = $("#input2").val();
+
+          const frontend = $("#frontend").val();
+          const backend = $("#backend").val();
+          const checkedfront = $("#frontend").prop("checked");
+          const checkedback = $("#backend").prop("checked");
+          const li = document.createElement("li");
+          li.textContent = input1;
+          const li2 = document.createElement("li");
+          li2.textContent = input2;
+          const lifront = document.createElement("li");
+          const libackend = document.createElement("li");
+          if (checkedfront) {
+            lifront.textContent = frontend;
+            $("#ul").append(lifront);
+          } else if (checkedback) {
+            libackend.textContent = backend;
+            $("#ul").append(libackend);
+          }
+          $("#ul").append(li);
+          $("#ul").append(li2);
         });
       });
     </script>
